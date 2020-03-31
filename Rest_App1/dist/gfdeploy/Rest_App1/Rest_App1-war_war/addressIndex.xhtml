@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h:commandLink action="addAddress.xhtml" value="Add"/>
+                <h1><h:outputText value="List"/></h1>
+                <h:dataTable value="#{addressManagedBean.allAddresses()}" var="item" border="2">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Aid"/>
+                        </f:facet>
+                        <h:outputText value="#{item.aid}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Street"/>
+                        </f:facet>
+                        <h:outputText value="#{item.street}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="City"/>
+                        </f:facet>
+                        <h:outputText value="#{item.city}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="State"/>
+                        </f:facet>
+                        <h:outputText value="#{item.state}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Zip"/>
+                        </f:facet>
+                        <h:outputText value="#{item.zip}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Cid"/>
+                        </f:facet>
+                        <h:outputText value="#{item.cid.fname}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Edit"/>
+                        </f:facet>
+                        <h:commandLink action="#{addressManagedBean.getAddress(item.aid)}" value="Edit"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+

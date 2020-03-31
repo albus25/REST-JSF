@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Aid:" for="aid" />
+                    <h:inputText id="aid" value="#{addressManagedBean.aid}" title="Aid" readonly="#{facesContext.renderResponse}"/>
+                    <h:outputLabel value="Street:" for="street" />
+                    <h:inputText id="street" value="#{addressManagedBean.street}" title="Street" required="true" requiredMessage="The Street field is required."/>
+                    <h:outputLabel value="City:" for="city" />
+                    <h:inputText id="city" value="#{addressManagedBean.city}" title="City" required="true" requiredMessage="The City field is required."/>
+                    <h:outputLabel value="State:" for="state" />
+                    <h:inputText id="state" value="#{addressManagedBean.state}" title="State" required="true" requiredMessage="The State field is required."/>
+                    <h:outputLabel value="Zip:" for="zip" />
+                    <h:inputText id="zip" value="#{addressManagedBean.zip}" title="Zip" required="true" requiredMessage="The Zip field is required."/>
+                    <h:outputLabel value="Cid:" for="cid" />
+                    <h:selectOneMenu id="cid" value="#{addressManagedBean.cid}" title="Cid" required="true" requiredMessage="The Cid field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{addressManagedBean.clist}" var="key" itemLabel="#{key.fname}" itemValue="#{key.cid}"/>
+                    </h:selectOneMenu>
+                    <h:commandButton action="#{addressManagedBean.addAddress()}" value="Save"/>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+
